@@ -1,0 +1,31 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <header>
+      <h1>{{title}}</h1>
+      <p>The local hub for music gear and upcoming jams.</p>
+    </header>
+
+    <main>
+      <h2>Upcoming Events Bulletin</h2>
+
+      <ul>
+        {{#each events}}
+          <li>
+            <strong>
+              {{this.title}}
+            </strong><br />
+            {{this.location}}
+            {{this.eventDate}}
+          </li>
+        {{else}}
+          <p>No upcoming events posted yet. Check back soon!</p>
+        {{/each}}
+      </ul>
+    </main>
+  </body>
+</html>

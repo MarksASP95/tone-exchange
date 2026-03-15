@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { GearListing } from '../gear-listings/gear-listing.entity';
+import { GearListing } from '../gear/gear-listing.entity';
 import { JamEvent } from '../jam-events/jam-event.entity';
 
 @Entity('users')

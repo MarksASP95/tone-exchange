@@ -3,12 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { GearListing } from 'src/gear-listings/gear-listing.entity';
+import { GearListing } from 'src/gear/gear-listing.entity';
 import { JamEvent } from 'src/jam-events/jam-event.entity';
 import { User } from 'src/users/user.entity';
 import { UsersModule } from './users/users.module';
-import { GearListingsModule } from './gear-listings/gear-listings.module';
+import { GearModule } from './gear/gear-listings.module';
 import { JamEventsModule } from './jam-events/jam-events.module';
+import { AuthModule } from './auth/auth.module';
+import { PagesController } from './pages/pages.controller';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -30,10 +33,12 @@ import { JamEventsModule } from './jam-events/jam-events.module';
       }),
     }),
     UsersModule,
-    GearListingsModule,
+    GearModule,
     JamEventsModule,
+    AuthModule,
+    EventsModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, PagesController],
   providers: [AppService],
 })
 export class AppModule {}
