@@ -1,0 +1,43 @@
+### 1. Register a new musician
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "guitarist@example.com",
+  "password": "supersecretpassword"
+}
+
+### 2. Log in to get the JWT
+# (Copy the "access_token" string from the response)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "guitarist@example.com",
+  "password": "supersecretpassword"
+}
+
+### 3. Post a new Jam Event 
+# (Replace <YOUR_TOKEN_HERE> with the actual token you copied)
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer <YOUR_TOKEN_HERE>
+
+{
+  "title": "Tuesday Bachata Social",
+  "eventDate": "2026-03-17T20:00:00Z",
+  "location": "Caracas Center",
+  "description": "Weekly bachata dancing! All levels welcome."
+}
+
+### 4. Post an acoustic jam session
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer <YOUR_TOKEN_HERE>
+
+{
+  "title": "Acoustic Guitar & Coffee Jam",
+  "eventDate": "2026-03-21T10:00:00Z",
+  "location": "El Hatillo",
+  "description": "Bring your acoustic and let's jam over some good coffee."
+}
